@@ -5,11 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.navigation.singleactivity.databinding.FragmentCBinding
 import kotlinx.android.synthetic.main.fragment_c.*
 
 class FragmentC : Fragment() {
 
+    val args: FragmentCArgs by navArgs()
+
+    //**********************************************************************************************
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -20,16 +24,15 @@ class FragmentC : Fragment() {
         return binding.root
     }
 
+    //**********************************************************************************************
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        textTitle.text = arguments?.getString("title")
+        textTitle.text = args.title
 
-        val sampleDataModel: SampleDataModel? = arguments?.getSerializable(
-            "sampleDataModel"
-        ) as? SampleDataModel
+        val sampleDataModel = args.sampleDataModel
 
-        sampleDataModel?.let {
+        sampleDataModel.let {
             textFullName.text = it.getFullName()
         }
 

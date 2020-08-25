@@ -39,6 +39,15 @@
         android:label="Fragment C"
         tools:layout="@layout/fragment_c" >
 
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue="Title" />
+
+        <argument
+            android:name="sampleDataModel"
+            app:argType="com.navigation.singleactivity.SampleDataModel" />
+
     </fragment>
 
 </navigation>

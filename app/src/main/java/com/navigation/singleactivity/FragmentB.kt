@@ -25,14 +25,12 @@ class FragmentB : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         buttonGoToFragmentC.setOnClickListener {
-            val bundle = Bundle()
-
-            bundle.putString("title", "Test title")
-            bundle.putSerializable(
-                "sampleDataModel", SampleDataModel("Sepideh", "vaziri")
+            val action = FragmentBDirections.actionShowPageC(
+                "Test title",
+                SampleDataModel("Sepideh", "Vaziry")
             )
 
-            view.findNavController().navigate(R.id.actionShowPageC, bundle)
+            view.findNavController().navigate(action)
         }
 
     }
